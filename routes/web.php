@@ -13,6 +13,7 @@
 
 Route::group(['middleware' => ['web','auth'], 'prefix' => config('backpack.base.route_prefix')], function () {
     Route::get('/', 'DashboardController@indexAction');
+    Route::get('/dashboard', 'DashboardController@indexAction');
 
     Route::get('/sms/send', 'SmsController@indexAction')->name('sms.index');
     Route::post('/sms/send', 'SmsController@sendAction')->name('sms.send');

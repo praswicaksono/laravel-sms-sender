@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 form-group ">
                     <label for="email">Phone Number</label> :
-                    <input class="form-control" placeholder="Phone Number" name="phone_number" type="text" id="email">
+                    <input class="form-control" placeholder="Phone Number (+62xxxxxxxx)" name="phone_number" type="text" id="email">
                 </div>
             </div>
             <div class="row">

@@ -167,7 +167,6 @@ return [
         /*
          * Package Service Providers...
          */
-        \Nodes\Services\Twilio\ServiceProvider::class,
 
         /*
          * Application Service Providers...

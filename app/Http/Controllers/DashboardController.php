@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class DashboardController
@@ -14,6 +15,9 @@ final class DashboardController extends Controller
 {
     public function indexAction()
     {
-        return view('vendor.backpack.base.dashboard');
+        $params = [
+            'user' => Auth::user()
+        ];
+        return view('vendor.backpack.base.dashboard', $params);
     }
 }

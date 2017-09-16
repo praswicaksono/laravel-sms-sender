@@ -21,6 +21,10 @@
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
+          <!-- ======================================= -->
+          <li class="header">SMS</li>
+          <li><a href="{{ route('sms.index') }}"><i class="fa fa-paper-plane-o"></i> <span>Send SMS</span></a></li>
+          <li><a href="{{ route('buy.credit.index')}}"><i class="fa fa-credit-card"></i> <span>Buy Sms Credit</span></a></li>
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>

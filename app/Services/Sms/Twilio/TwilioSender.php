@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Services\Sms\Twilio;
 
 use App\Services\Sms\SmsInterface;
-use Nodes\Services\Twilio\Resources\SmsMessage;
+use Twilio\Rest\Client;
 
 /**
  * Class TwilioSender
@@ -13,15 +13,15 @@ use Nodes\Services\Twilio\Resources\SmsMessage;
 final class TwilioSender implements SmsInterface
 {
     /**
-     * @var SmsMessage
+     * @var Client
      */
     private $client;
 
     /**
      * TwilioSender constructor.
-     * @param SmsMessage $twilio
+     * @param Client $twilio
      */
-    public function __construct(SmsMessage $twilio)
+    public function __construct(Client $twilio)
     {
         $this->client = $twilio;
     }
@@ -32,8 +32,12 @@ final class TwilioSender implements SmsInterface
      */
     public function send(string $phoneNumber, string $message)
     {
-        $this->client->setToNumber($phoneNumber);
-        $this->client->setMessage($message);
-        $this->client->send();
+        $this->client->messages->create(
+            $phoneNumber, // Text this number
+            array(
+                'from' => 'GiftSelfie', // From a valid Twilio number
+                'body' => $message
+            )
+        );
     }
 }

@@ -40,8 +40,7 @@ final class StripeProcessor implements PaymentInterface
         $this->client->charges()->create([
             'amount' => $params['amount'],
             'currency' => 'USD',
-            'capture' => true,
-            'source' => $token,
+            'source' => $token['id'],
             'metadata' => ['user_id' => $params['user_id']],
             'description' => "Buying {$params['amount']} SMS credit(s)"
         ]);
